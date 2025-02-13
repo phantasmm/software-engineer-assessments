@@ -38,6 +38,9 @@ describe("Scoreboard Tests", () => {
     // assert LD  have won 1 seat
     // assert LAB have won 4 seats
     // assert no winner
+    expect(scoreboard.body.partyResults.LD.seat).toBe(1);
+    expect(scoreboard.body.partyResults.LAB.seat).toBe(4);
+    expect(scoreboard.body.winner).toBeUndefined();
   });
 
   test("first 100", async () => {
@@ -49,8 +52,14 @@ describe("Scoreboard Tests", () => {
     // assert CON have won 31 seats
     // assert SGP have won 0  seats
     // assert no winner
+    expect(scoreboard.body.partyResults.LD.seat).toBe(12);
+    expect(scoreboard.body.partyResults.LAB.seat).toBe(56);
+    expect(scoreboard.body.partyResults.CON.seat).toBe(31);
+    expect(scoreboard.body.partyResults.SGP.seat).toBe(0);
+    expect(scoreboard.body.winner).toBeUndefined();
     // Bonus Task (total votes):
     // assert SGP have 1071 votes in total
+    expect(scoreboard.body.partyResults.SGP.votes).toBe(1071);
   });
 
   test("first 554", async () => {
@@ -62,8 +71,14 @@ describe("Scoreboard Tests", () => {
     // assert CON  have won 167 seats
     // assert IKHH have won 1   seats
     // assert winner is LAB
+    expect(scoreboard.body.partyResults.LD.seat).toBe(52);
+    expect(scoreboard.body.partyResults.LAB.seat).toBe(325);
+    expect(scoreboard.body.partyResults.CON.seat).toBe(167);
+    expect(scoreboard.body.partyResults.IKHH.seat).toBe(1);
+    expect(scoreboard.body.winner).toBe("LAB");
     // Bonus Task (total votes):
     // assert IKHH have 18739 votes in total
+    expect(scoreboard.body.partyResults.IKHH.votes).toBe(18739);
   }, 10000);
 
   test("test all results", async () => {
@@ -76,7 +91,14 @@ describe("Scoreboard Tests", () => {
     // assert SDLP have won 3   seats
     // assert winner is LAB
     // assert 650 seats counted
+    expect(scoreboard.body.partyResults.LD.seat).toBe(62);
+    expect(scoreboard.body.partyResults.LAB.seat).toBe(349);
+    expect(scoreboard.body.partyResults.CON.seat).toBe(210);
+    expect(scoreboard.body.partyResults.SDLP.seat).toBe(3);
+    expect(scoreboard.body.winner).toBe("LAB");
+    expect(scoreboard.body.totalSeats).toBe(650);
     // Bonus Task (total votes):
     // assert SDLP have 125626 votes in total
+    expect(scoreboard.body.partyResults.SDLP.votes).toBe(125626);
   }, 15000);
 });
